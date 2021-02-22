@@ -1,0 +1,73 @@
+---
+- hosts: devops
+  remote_user: wl
+  become_method: sudo
+  become: yes
+
+  vars_files:              # file with variables, using for readability
+          - vars.yaml
+
+
+  # vars:
+  # flask_app_location: /usr/local/opt/flask_app
+
+
+  pre_tasks:               # run tasks before the main tasks
+          - name: Update apt
+            apt: update_cache=yes cache_valid_time=3600
+
+
+  handlers:                # a special kind of task, invokes by notify option
+          - name: restart apache
+            service: name=apache2 state=restarted
+
+
+  tasks:
+          - name: Install Apache and Python libs
+            apt:
+                    name:
+                            -apache2
+                            -python3-pip
+                            -python3-dev
+
+          - name: Install Flask   # using shell module of Ansible
+            shell: | 
+                    mkdir flask_app
+                    cd flask_app
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip install Flask
+            register: SEQOUT
+
+          - debug: msg={{SEQOUT.stdout_lines}}
+
+          - name: Start Apache
+            service: name=apache2 state=started enabled=yes
+
+          - name: Make sure Flask app directory exists
+            file: "path={{ flask_app_location }} state=directory"
+
+          - name: Copy Flask app to server
+            copy: "src=flask_dir dest={{ flask_app_location }}"
+
+          - name: Add Apache virtualhost to Flask
+            template:
+                    src: "templates/flask_app_conf.j2"
+                    dest: "/etc/apache2/sites-available/{{ domain }}.test.conf"
+                    owner: root
+                    group: root
+                    mode: 0644
+            notify: restart apache
+
+          - name: Flask symlink to sites-enabled
+            file:
+                    src: "/etc/apache2/sites-available/{{ domain }}.test.conf"
+                    dest: "/etc/apache2/sites-enabled/{{ domain }}.test.conf"
+                    state: link
+            notify: restart apache
+
+          - name: Remove default virtualhost file
+            file:
+                    path: "/etc/apache2/sites-enabled/000-default.conf"
+                    state: absent
+            notify: restart apache2 
