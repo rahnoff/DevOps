@@ -31,7 +31,9 @@ while condition; do list; done - while loop, commands in a list will be executed
 
 read variable - is used to read a single line of standart input or a line of data from a file, assigns fields from standart input to the specified variable, in this case one variable will contain all input
 
-whois - 
+whois - determine which organisation owns the range of IP addresses
+
+-F':' option in awk means field separator, in this case colon, /^Organisation/ - print the line which starts with Organisation word {print $2} - print the second part after colon
 
 
 
