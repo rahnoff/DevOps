@@ -1,8 +1,0 @@
-<VirtualHost *:80>
-    ServerAdmin webmaster@localhost
-    DocumentRoot {{ flask_app_location }}
-    <Directory "{{ flask_app_location }}">
-        Options FollowSymLinks Indexes
-        AllowOverride All
-    </Directory>
-</VirtualHost>
