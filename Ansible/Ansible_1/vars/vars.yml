@@ -1,0 +1,13 @@
+---
+
+# the path where Flask is downloaded
+# flask_app_location: "/usr/local/opt/flask_app"
+#flask_app_location: "/home/wl/flask_app"
+flask_app_location: "/home/wl"
+
+# firewall_allowed_tcp_ports:
+        # - "22"
+        # - "80"
+        # - "443"
+
+# domain: "flask_devops"
