@@ -1,0 +1,36 @@
+---
+- name: Install python3-venv and python3-pip
+  apt: name=python3-venv update_cache=yes state=latest name=python3-pip update_cache=yes state=latest
+
+#- name: Make directory for Flask framework
+  #file: "path={{ flask_app_location }} state=directory"
+
+#- name: Move to Flask app folder
+  #shell: cd flask_app
+
+- name: Copy source files of Flask app
+  copy: "src=flask_dir dest={{ flask_app_location }}"
+
+- name: Move to source code folder
+  shell: cd flask_dir
+
+- name: Create virtenv
+  shell: python3 -m venv venv
+
+- name: Activate virtenv
+  shell: . venv/bin/activate
+
+- name: Install Flask
+  shell: pip3 install Flask
+
+#- name: Activate virtualenv
+  #shell: pipenv shell
+
+#- name: Copy source files of Flask app
+  #copy: "src=flask_dir dest={{ flask_app_location }}"
+
+- name: Export Flask app variable
+  shell: export FLASK_APP=flask_app_src.py
+
+- name: Start Flask app
+  shell: flask run
