@@ -1,3 +1,6 @@
 # DevOps
-Version
-Flask app doesn't support emoji and POST method yet, also no self-signed certificates, root login isn't disabled. Python source code is in flask_app_src.py file, configuration file for Apache is flask_app_conf.j2, Ansible playbook file is flask_real_app.yaml with variables residing in vars.yaml file, playbook has comments, app isn't finished yet, just proof-of-concept
+Version 2
+To run type: ansible-playbook flask_app_real.yml --become --become-user=user --ask-become-pass
+flask_app_real.yml is the main playbook, others included as roles, flaskpy role is all about installing required python libs for Flask and configuring app on a remote host firewall role installs and configures ufw to allow only 22, 80, 443 ports
+vars folder for variables
+Flask app supports GET and POST methods with json type of data as a request containing emoji and count, responds with different number of emoji strings depending on count value
