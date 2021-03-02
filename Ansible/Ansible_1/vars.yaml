@@ -1,6 +1,0 @@
----
-
-# the path where Flask is downloaded and installed
-flask_app_location: "/usr/local/opt/flask_app"
-
-domain: "flask_devops"
