@@ -21,7 +21,7 @@ The output of command:<br />
 
 `sort` - sorts the contents of standart input and sends the results to standart output
 
-`uniq` - removes any duplicate lines from a sorted file or standart input and sends the results to standart output, often used with sort, `-c` - lines will be preceeded by the number of times the line occurs
+`uniq` - removes any duplicate lines from a sorted file or standart input and sends the results to standart output, often used with sort, `-c`- lines will be preceeded by the number of times the line occurs
 
 `tail` - prints the last 10 lines from the file or standart input, `-n 5` option - print only 5 last lines
 
