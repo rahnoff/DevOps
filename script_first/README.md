@@ -1,5 +1,5 @@
 
-**Network script**<br />
+##Network script<br />
 The first command is `netstat` with `-tunapl` options, which is used to display socket statistics,  options:<br />
 `-t` - show TCP sockets<br />
 `-u` - show UDP sockets;
