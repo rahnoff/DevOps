@@ -25,15 +25,15 @@ The output of command:<br />
 
 `tail` - prints the last 10 lines from the file or standart input, `-n 5` option - print only 5 last lines
 
-**grep** - general regular expression parser - searches text files for text matching a specified regular expression and outputs any line containing a match, **-oP** options **-o** is used for printing only matched text, **-P** means Perl-compatible expression, **(\d+\.)** - **\d** - text should start with a number in 0-9 range, **+** means one or more matches of the preceeding element, **\.** - backslash as an escaping char for point, point itself means any char, **()** - parenthesis for integration three matches into one, **{3}** - match the preceeding element three times
+`grep` - general regular expression parser - searches text files for text matching a specified regular expression and outputs any line containing a match, `-oP` options `-o` is used for printing only matched text, `-P` means Perl-compatible expression, `(\d+\.)` - `\d` - text should start with a number in 0-9 range, `+` means one or more matches of the preceeding element, `\.` - backslash as an escaping char for point, point itself means any char, `()` - parenthesis for integration three matches into one, `{3}` - match the preceeding element three times
 
-**while condition; do list; done** - while loop, commands in a list will be executed until condition is false
+`while condition; do list; done` - while loop, commands in a list will be executed until condition is false
 
-**read variable** - is used to read a single line of standart input or a line of data from a file, assigns fields from standart input to the specified variable, in this case one variable will contain all input
+`read variable` - is used to read a single line of standart input or a line of data from a file, assigns fields from standart input to the specified variable, in this case one variable will contain all input
 
-**whois** - determine which organisation owns the range of IP addresses
+`whois` - determine which organisation owns the range of IP addresses
 
-**-F':'** option in awk means field separator, in this case colon, **/^Organization/** - print the line which starts with Organization word **{print $2}** - print the second part after colon
+`-F':'` option in awk means field separator, in this case colon, `/^Organization/` - print the line which starts with Organization word `{print $2}` - print the second part after colon
 
 
 
