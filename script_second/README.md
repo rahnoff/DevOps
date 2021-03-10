@@ -13,4 +13,3 @@
 `awk 'NR==1 { first = $0} END { print; print first }'` - print only the first and last values
 
 `awk -v diff=0 '{diff=$1-$2} END { print diff }'` - print the difference between them
-
