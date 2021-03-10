@@ -1,11 +1,11 @@
 # DevOps
 Version 2
 
-flask_app_real.yml is the main playbook, others included as roles<br />
+**flask_app_real.yml** is the main playbook, others included as roles<br />
 
-flaskpy role is all about installing required python libs for Flask and configuring app on a remote host; firewall role installs and configures ufw to allow only 22, 80, 443 ports<br />
+**flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host; **firewall** role installs and configures ufw to allow only 22, 80, 443 ports<br />
 
-vars folder for variables<br />
+**vars** folder for variables<br />
 
 Flask app supports GET and POST methods with json type of data as a request containing emoji and count, responds with different number of emoji strings depending on count value<br />
 
