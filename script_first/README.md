@@ -15,15 +15,15 @@ The output of command:<br />
 **State** - **LISTEN** means the process is waiting, **ESTABLISHED** the process is processing input, UDP protocol doesn't have any state<br />
 **PID/Program name** - PID of a process and its name<br />
 
-**awk** - the tabular data manipulation tool, **/firefox/** - match only lines with firefox word, **{print $5}** - print the fifth column
+`awk` - the tabular data manipulation tool, `/firefox/` - match only lines with firefox word, `{print $5}` - print the fifth column
 
-**cut** - extracts a sections of text from a line, **-d':'** - delimeter is used for colon separating pattern in this case, **-f1** - print the first part of the string separated by colon 
+`cut` - extracts a sections of text from a line, `-d':'` - delimeter is used for colon separating pattern in this case, `-f1` - print the first part of the string separated by colon 
 
-**sort** - sorts the contents of standart input and sends the results to standart output
+`sort` - sorts the contents of standart input and sends the results to standart output
 
-**uniq** - removes any duplicate lines from a sorted file or standart input and sends the results to standart output, often used with sort, **-c** option - lines will be preceeded by the number of times the line occurs
+`uniq` - removes any duplicate lines from a sorted file or standart input and sends the results to standart output, often used with sort, `-c` option - lines will be preceeded by the number of times the line occurs
 
-**tail** - prints the last 10 lines from the file or standart input, **-n 5** option - print only 5 last lines
+`tail` - prints the last 10 lines from the file or standart input, `-n 5` option - print only 5 last lines
 
 **grep** - general regular expression parser - searches text files for text matching a specified regular expression and outputs any line containing a match, **-oP** options **-o** is used for printing only matched text, **-P** means Perl-compatible expression, **(\d+\.)** - **\d** - text should start with a number in 0-9 range, **+** means one or more matches of the preceeding element, **\.** - backslash as an escaping char for point, point itself means any char, **()** - parenthesis for integration three matches into one, **{3}** - match the preceeding element three times
 
