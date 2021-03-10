@@ -38,7 +38,7 @@ The output of command:<br />
 
 `whois` - determine which organisation owns the range of IP addresses
 
-`-F':'` option in awk means field separator, in this case colon, `/^Organization/` - print the line which starts with Organization word `{print $2}` - print the second part after colon
+`-F':'` option in awk means field separator, in this case colon, `/^Organization/` - print the line which starts with Organization word, `{print $2}` - print the second part after colon
 
 
 
