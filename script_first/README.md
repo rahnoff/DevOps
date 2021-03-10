@@ -2,18 +2,18 @@
 ## Network script<br />
 The first command is `netstat` with `-tunapl` options, which is used to display socket statistics,  options:<br />
 `-t` - show TCP sockets<br />
-`-u` - show UDP sockets;
-`-n` - show numbers instead of names for interfaces and ports;
-`-a` - show listening and established sockets;
-`-p` - show the process using the sockets;
-`-l` - show only listening sockets;
-The output of command:
-**Proto** - means protocol
-**Recv-Q, Send-Q** - received and sent data correspondingly
-**Local Address** - on which port and IP address the process is listening on, **0.0.0.0** stands for all network interfaces for IPv4, **:::** same for IPv6, **\*** for all ports
-**Foreign Address** - from which address and port connection is established
-**State** - **LISTEN** means the process is waiting, **ESTABLISHED** the process is processing input, UDP protocol doesn't have any state
-**PID/Program name** - PID of a process and its name
+`-u` - show UDP sockets<br />
+`-n` - show numbers instead of names for interfaces and ports<br />
+`-a` - show listening and established sockets<br />
+`-p` - show the process using the sockets<br />
+`-l` - show only listening sockets<br />
+The output of command:<br />
+**Proto** - means protocol<br />
+**Recv-Q, Send-Q** - received and sent data correspondingly<br />
+**Local Address** - on which port and IP address the process is listening on, **0.0.0.0** stands for all network interfaces for IPv4, **:::** same for IPv6, **\*** for all ports<br />
+**Foreign Address** - from which address and port connection is established<br />
+**State** - **LISTEN** means the process is waiting, **ESTABLISHED** the process is processing input, UDP protocol doesn't have any state<br />
+**PID/Program name** - PID of a process and its name<br />
 
 **awk** - the tabular data manipulation tool, **/firefox/** - match only lines with firefox word, **{print $5}** - print the fifth column
 
