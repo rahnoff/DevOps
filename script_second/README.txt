@@ -1,7 +1,7 @@
 
 date +%s%3N -d "Month Day, Year TIME" - turns date into epoch time in milliseconds format
 
-jq -r '.prices[][]' - outputs json type of data into strings
+jq -r '.prices[][]' - outputs json type of data to strings
 
 awk 'ORS=NR%2?" ":"\n"' - formats strings into two columns
 
