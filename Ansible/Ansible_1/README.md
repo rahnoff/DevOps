@@ -11,7 +11,7 @@ In **/etc/hosts** add an IP address and name of the managed Ansible host, in **/
 
 Flask app supports GET and POST methods with json type of data as a request containing emoji and count, responds with different number of emoji strings depending on count value<br />
 
-To test app with POST method type: `curl -H "Content-Type: application/json" -X POST -d'{"word" : "mice", "count" : 5}' http://localhost/emoji`<br />
+To test app with POST method type: `curl -H "Content-Type: application/json" -X POST -d'{"word" : "mice", "count" : 5}' http://name_of_managed_host/emoji`<br />
 `-H` option indicates the type of data being sent in the request body<br />
 `-d` option indicates the data to include in the body of the request, **mice** is emoji, **word** is a key for it, **count** is for how many times emoji should appear
 
