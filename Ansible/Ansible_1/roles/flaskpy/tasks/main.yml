@@ -2,26 +2,54 @@
 - name: Install python3-venv and python3-pip
   apt: name=python3-venv update_cache=yes state=latest name=python3-pip update_cache=yes state=latest
 
-#- name: Make directory for Flask framework
-  #file: "path={{ flask_app_location }} state=directory"
+- name: Make directory for Flask framework
+  file: "path={{ flask_app_location }} state=directory"
 
 #- name: Move to Flask app folder
-  #shell: cd flask_app
+  #shell: cd /usr/local/opt/flask_app
 
 - name: Copy source files of Flask app
-  copy: "src=flask_dir dest={{ flask_app_location }}"
+  copy: "src=flask_dir_test dest={{ flask_app_location }}"
 
-- name: Move to source code folder
-  shell: cd flask_dir
+- name: Make Flask src code executable
+  file: dest={{ flask_app_location }}/flask_dir_test/flask_app_src.py mode=a+x
 
-- name: Create virtenv
-  shell: python3 -m venv venv
+#- name: Move to Flask app folder
+  #shell: cd /usr/local/opt/flask_app/flask_dir_test
 
-- name: Activate virtenv
-  shell: . venv/bin/activate
+#- name: Move to source code folder
+  #shell: cd /home/wl/flask_dir_test
 
-- name: Install Flask
-  shell: pip3 install Flask
+#- name: Create virtenv
+  #shell: python3 -m venv venv --without-pip --system-site-packages
+#- name: Create virtenv
+  #shell: python3 -m venv venv
+#- name: Activate virtenv
+  #shell: . venv/bin/activate
+
+- name: Install Flask framework
+  shell: python3 -m pip install Flask
+
+- name: Install Emoji module
+  shell: python3 -m pip install emoji
+
+#- name: dsf
+  #shell: python3 -m pip install python-dotenv
+
+#- name: asd
+  #file: "path=/etc/flask_app/.flaskenv state=present
+
+#- name: asd
+  #lineinfile:
+    #dest: /etc/flask_app/.flaskenv
+    #line: 'FLASK_APP=flask_app_src.py'
+    #state: present
+
+#- name: Install Flask
+  #shell: pip3 install Flask
+
+#- name: Install emoji library
+  #shell: pip3 install emoji
 
 #- name: Activate virtualenv
   #shell: pipenv shell
@@ -29,8 +57,18 @@
 #- name: Copy source files of Flask app
   #copy: "src=flask_dir dest={{ flask_app_location }}"
 
-- name: Export Flask app variable
-  shell: export FLASK_APP=flask_app_src.py
+#- name: Export Flask app variable
+  #shell: "export FLASK_APP=/usr/local/opt/flask_app/flask_dir_test/flask_app_src.py"
 
-- name: Start Flask app
-  shell: flask run
+#- name: pok
+  #shell: export FLASK_ENV=development
+
+#- name: Start Flask app
+  #shell: python3 /usr/local/opt/flask_app/flask_dir_test/flask_app_src.py
+
+#- name: Start Flask app
+  #shell: /home/wl/flask_app/flask_dir_test/flask_app_src.py
+
+#- name: Start Flask app
+  #shell: flask run
+
