@@ -1,7 +1,9 @@
 # DevOps
 Version 2
 
-In **/etc/hosts** add an IP address and name of the managed Ansible host, in **/etc/ansible/hosts** add name of the managed Ansible host
+In **/etc/hosts** add an IP address and name of the managed Ansible host, in **/etc/ansible/hosts** add name of the managed Ansible host<br />
+
+To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, then type `ssh-copy-id user_on_managed_host@name_of_managed_host`<br />
 
 **flask_app_real.yml** is the main playbook, others included as roles<br />
 
