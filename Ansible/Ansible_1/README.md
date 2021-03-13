@@ -7,7 +7,7 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 
 **flask_app_real.yml** is the main playbook, others included as roles<br />
 
-**flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host; **firewall** role installs and configures ufw to allow only 22, 80, 443 ports, **ssh_configuration** role add the remote user to sudoers and disables root login, **systemd_config** role creates a unit to start the app at boot<br />
+**flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host; **firewall** role installs and configures ufw to allow only 22, 80, 443 ports, **ssh_configuration** role adds the remote user to sudoers and disables root login, **systemd_config** role creates a unit to start the app at boot<br />
 
 **vars** folder for variables<br />
 
