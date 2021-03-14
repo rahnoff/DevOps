@@ -20,6 +20,6 @@ To test app with POST method type: `curl -k -H "Content-Type: application/json" 
 `-H` option indicates the type of data being sent in the request body<br />
 `-X POST` - POST method<br />
 `-d` option indicates the data to include in the body of the request, **wolf** is emoji, **word** is a key for it, **count** is for how many times emoji should appear<br />
-For GET method type `curl -k https://name_of_managed_host/`<br />
+For GET method with Flask greetings type `curl -k https://name_of_managed_host/`<br />
 
 To run the playbook type: `ansible-playbook flask_app_real.yml --become --become-user=user --ask-become-pass` where `user` is the remote user in sudoers file, `--ask-become-pass` option means the password is required, `--become` tells Ansible to become another user, root in this case
