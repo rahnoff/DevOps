@@ -27,4 +27,4 @@ def create_emoji():
     return (emoji_output * emoji_count)
 
 if __name__ == '__main__':
-    app.run(port=80, host='0.0.0.0')
+    app.run(port=8080, host='0.0.0.0')
