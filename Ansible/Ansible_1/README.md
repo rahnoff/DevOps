@@ -8,6 +8,8 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 
 **flask_app_real.yml** is the main playbook, others included as roles<br />
 
+**flask_dir_test** is a source code folder<br />
+
 **HTTPS** requires certificates, self-signed certificates in this case, to generate key and cert install OpenSSL by typing `sudo apt install openssl`, then type `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout name_of_current_dir/nginx-selfsigned.key -out name_of_current_dir/nginx-selfsigned.crt`, answers to questions may be arbitrary, for **commom name** answer localhost. File with .crt extension has root as user and group owner, change ownership to local non-root user by `sudo chown user_name nginx-selfsigned.crt`, `sudo chown :group_name_of_user_name nginx-selfsigned.crt` and `chmod g+r nginx-selfsigned.crt`, `chmod o+r nginx-selfsigned.crt`, then move them to ansible folder from which ansible playbook runs<br />
 
 **flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host, **firewall** role installs and configures ufw to allow only 22, 8080, 443 ports, **ssh_configuration** role adds the remote user to sudoers, disables root login and also disables password-based SSH authentication, **systemd_config** role creates a unit to start the app at boot, **nginx_configuration** installs **NGINX** and configures it as an HTTPS proxy for Flask app<br />
@@ -24,3 +26,5 @@ To test app with POST method type: `curl -k -H "Content-Type: application/json" 
 For GET method with Flask greetings type `curl -k https://name_of_managed_host/`<br />
 
 To run the playbook type: `ansible-playbook flask_app_real.yml --become --become-user=user --ask-become-pass` where `user` is the remote user in sudoers file, `--ask-become-pass` option means the password is required, `--become` tells Ansible to become another user, root in this case
+
+There is a possibility playbook files contain sensitive data like passwords, to provide additional security Ansible can encrypt such files with `ansible-vault encrypt file
