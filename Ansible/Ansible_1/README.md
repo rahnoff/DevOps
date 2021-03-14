@@ -17,7 +17,7 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 Flask app supports GET and POST methods with json type of data as a request containing emoji and count, responds with different number of emoji depending on count value<br />
 
 To test app with POST method type: `curl -k -H "Content-Type: application/json" -X POST -d'{"word" : "wolf", "count" : 5}' https://name_of_managed_host/emoji`<br />
-`-k` option is for ignoring self-signed certs, by default curl doesn't work with self-signed certs<br />
+`-k` option is for ignoring self-signed certs, by default curl doesn't work with them<br />
 `-H` option indicates the type of data being sent in the request body<br />
 `-X POST` - POST method<br />
 `-d` option indicates the data to include in the body of the request, **wolf** is emoji, **word** is a key for it, **count** is for how many times emoji should appear<br />
