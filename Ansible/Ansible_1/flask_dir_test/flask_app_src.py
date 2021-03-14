@@ -13,10 +13,6 @@ def hello():
 
 @app.route('/emoji', methods=['POST'])
 def create_emoji():
-    #request_data = request.get_json()
-    #emoji = request_data['word']
-    #emoji_count = int(request_data['count'])
-    #return (emoji * emoji_count)
     delimeter_one = ':'
     delimeter_two = ':'
     request_data = request.get_json()
