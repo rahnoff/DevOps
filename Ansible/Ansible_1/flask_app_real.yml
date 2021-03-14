@@ -13,3 +13,4 @@
           - firewall
           - flaskpy
           - systemd_config
+          - nginx_configuration
