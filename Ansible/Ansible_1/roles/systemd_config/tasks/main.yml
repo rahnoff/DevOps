@@ -1,5 +1,4 @@
 ---
-
 - name: Create a service file in /etc/systemd/system
   file: dest=/etc/systemd/system/flask_app_service.service state=touch
 
@@ -39,12 +38,6 @@
     line: 'WorkingDirectory=/home/wl/flask_app/flask_dir_test'
     state: present
 
-#- name: Edit service file
-  #lineinfile:
-    #dest: /etc/systemd/system/flask_app_service.service
-    #line: 'ExecStartPre=/bin/sleep 10'
-    #state: present
-
 - name: Edit service file
   lineinfile:
     dest: /etc/systemd/system/flask_app_service.service
@@ -75,11 +68,8 @@
 - name: Start service
   shell: systemctl start flask_app_service.service
 
-- name: Start service
+- name: Enable service
   shell: systemctl enable flask_app_service.service
-
-#- name: Start service
-  #shell: systemctl start flask_app_service.service
 
 
 
