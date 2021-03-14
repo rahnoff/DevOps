@@ -1,5 +1,6 @@
 # Flask App with Ansible
-Version 2
+
+Install Ansible by `sudo apt install ansible`
 
 In **/etc/hosts** add an IP address and name of the managed Ansible host, in **/etc/ansible/hosts** add name of the managed Ansible host<br />
 
