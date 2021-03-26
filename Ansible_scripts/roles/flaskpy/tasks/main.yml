@@ -9,7 +9,7 @@
   file: "path={{ flask_app_location }} state=directory"
 
 - name: Copy source files of Flask app
-  copy: "src=flask_dir_test dest={{ flask_app_location }}"
+  copy: "src=flask_dir dest={{ flask_app_location }}"
 
 - name: Make Flask src code executable
   file: dest={{ flask_app_location }}/flask_dir_test/flask_app_src.py mode=a+x
