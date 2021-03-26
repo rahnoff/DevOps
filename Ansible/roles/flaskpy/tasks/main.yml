@@ -12,7 +12,7 @@
   copy: "src=flask_dir dest={{ flask_app_location }}"
 
 - name: Make Flask src code executable
-  file: dest={{ flask_app_location }}/flask_dir_test/flask_app_src.py mode=a+x
+  file: dest={{ flask_app_location }}/flask_dir/flask_app_src.py mode=a+x
 
 - name: Install Flask framework
   shell: python3 -m pip install Flask
