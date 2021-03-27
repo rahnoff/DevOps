@@ -9,8 +9,8 @@
 
 
   roles: 
-          - ssh_configuration
-          - firewall
+          - ssh_config
+          - firewall_config
           - flaskpy
           - systemd_config
-          - nginx_configuration
+          - nginx_config
