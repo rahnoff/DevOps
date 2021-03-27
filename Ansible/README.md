@@ -12,7 +12,14 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 
 **HTTPS** requires certificates, self-signed certificates in this case, to generate key and cert install OpenSSL by typing `sudo apt install openssl`, then type `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout name_of_current_dir/nginx-selfsigned.key -out name_of_current_dir/nginx-selfsigned.crt`, answers to questions may be arbitrary, for **common name** answer localhost. File with .crt extension has root as user and group owner, change ownership to local non-root user by `sudo chown user_name nginx-selfsigned.crt`, `sudo chown :group_name_of_user_name nginx-selfsigned.crt` and `chmod g+r nginx-selfsigned.crt`, `chmod o+r nginx-selfsigned.crt`, then move them to ansible folder from which ansible playbook runs<br />
 
-**flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host, **firewall_config** role installs and configures ufw to allow only 22, 8080, 443 ports, **ssh_config** role adds the remote user to sudoers, disables root login and also disables password-based SSH authentication, **systemd_config** role creates a unit to start the app at boot, **nginx_config** installs **NGINX** and configures it as an HTTPS proxy for Flask app<br />
+**flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host<br />
+
+**firewall_config** role installs and configures ufw to allow only 22, 8080, 443 ports<br />
+
+**ssh_config** role adds the remote user to sudoers, disables root login and also disables password-based SSH authentication<br />
+
+**systemd_config** role creates a unit to start the app at boot<br />
+**nginx_config** installs **NGINX** and configures it as an HTTPS proxy for Flask app<br />
 
 **vars** folder is for variables, contains vars.yml with **flask_app_location: "/usr/local/opt/flask_app"**<br />
 
