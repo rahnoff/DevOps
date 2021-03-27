@@ -14,7 +14,7 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 
 **flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host, **firewall_config** role installs and configures ufw to allow only 22, 8080, 443 ports, **ssh_config** role adds the remote user to sudoers, disables root login and also disables password-based SSH authentication, **systemd_config** role creates a unit to start the app at boot, **nginx_config** installs **NGINX** and configures it as an HTTPS proxy for Flask app<br />
 
-**vars** folder for variables, contains **flask_app_location: "/usr/local/opt/flask_app"**<br />
+**vars** folder is for variables, contains vars.yml with **flask_app_location: "/usr/local/opt/flask_app"**<br />
 
 Flask app supports GET and POST methods with json type of data as a request containing emoji and count, responds with different number of emoji depending on count value<br />
 
