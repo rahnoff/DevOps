@@ -24,9 +24,13 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 
 **systemd_config** role creates a unit to start the app at boot<br />
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 537c1d513b5e6f5c67c0a54e2f5b2f4b3d8599ab
+=======
+
+>>>>>>> fdc7aecfab4cb115310dd725846e1e928461d16e
 **nginx_config** installs **NGINX** and configures it as an HTTPS proxy for Flask app<br />
 
 **vars** folder is for variables, contains vars.yml with **flask_app_location: "/usr/local/opt/flask_app"**<br />
@@ -41,12 +45,18 @@ To test app with POST method type: `curl -k -H "Content-Type: application/json" 
 For GET method with Flask greetings type `curl -k https://name_of_managed_host/`<br />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fdc7aecfab4cb115310dd725846e1e928461d16e
 To run the playbook type: `ansible-playbook flask_app_real.yml --become --become-user=root --ask-become-pass`<br />
 `--ask-become-pass` option means the password is required<br />
 `--become` tells Ansible to become a different user<br />
 `--become-user=root` tells Ansible that user is root<br />
+<<<<<<< HEAD
 =======
 To run the playbook type: `ansible-playbook flask_app_real.yml --become --become-user=root --ask-become-pass`, `--ask-become-pass` option means the password is required, `--become` tells Ansible to become a different user, `--become-user=root` tells Ansible that user is root<br />
 >>>>>>> 537c1d513b5e6f5c67c0a54e2f5b2f4b3d8599ab
+=======
+>>>>>>> fdc7aecfab4cb115310dd725846e1e928461d16e
 
 There is a possibility playbook files contain sensitive data like passwords, to provide additional security Ansible can encrypt such files with `ansible-vault encrypt file_name.yml` command, it demands a password, enter it and file_name.yml will no longer contain YAML, instead there are numbers. Next time the playbook runs it will demand a password. The convenient way to run playbooks with encrypted files is to create a password file. Inside **.ansible** folder which should be in a folder where you run a playbook, if not make it, create **vault_pass.txt** file with your password, set permissions to 600 by typing `chmod 600 vault_pass.txt`. When run the playbook use `--vault-password-file .ansible/vault_pass.txt` option. I encrypted **vars/vars.yml** file, but didn't add it for the reason of showing the file contents. To run the playbook with an encrypted file type `ansible-playbook flask_app_real.yml --become --become-user=user --ask-become-pass --vault-password-file .ansible/vault_pass.txt`<br />
