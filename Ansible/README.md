@@ -10,11 +10,7 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 
 **flask_dir** is a source code folder<br />
 
-<<<<<<< HEAD
 **HTTPS** requires certificates, self-signed certificates in this case, to generate a key and a cert install OpenSSL by typing `sudo apt install openssl`, then type `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout name_of_current_dir/nginx-selfsigned.key -out name_of_current_dir/nginx-selfsigned.crt`, answers to questions may be arbitrary, for **common name** answer localhost. File with .crt extension has root as user and group owner, change ownership to local non-root user by `sudo chown user_name nginx-selfsigned.crt`, `sudo chown :group_name_of_user_name nginx-selfsigned.crt` and `chmod g+r nginx-selfsigned.crt`, `chmod o+r nginx-selfsigned.crt`, then move them to ansible folder from which ansible playbook runs<br />
-=======
-**HTTPS** requires certificates, self-signed certificates in this case, to generate key and cert install OpenSSL by typing `sudo apt install openssl`, then type `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout name_of_current_dir/nginx-selfsigned.key -out name_of_current_dir/nginx-selfsigned.crt`, answers to questions may be arbitrary, for **common name** answer localhost. File with .crt extension has root as user and group owner, change ownership to local non-root user by `sudo chown user_name nginx-selfsigned.crt`, `sudo chown :group_name_of_user_name nginx-selfsigned.crt` and `chmod g+r nginx-selfsigned.crt`, `chmod o+r nginx-selfsigned.crt`, then move them to ansible folder from which ansible playbook runs<br />
->>>>>>> 537c1d513b5e6f5c67c0a54e2f5b2f4b3d8599ab
 
 **flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host<br />
 
@@ -23,14 +19,7 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 **ssh_config** role adds the remote user to sudoers, disables root login and also disables password-based SSH authentication<br />
 
 **systemd_config** role creates a unit to start the app at boot<br />
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 537c1d513b5e6f5c67c0a54e2f5b2f4b3d8599ab
-=======
-
->>>>>>> fdc7aecfab4cb115310dd725846e1e928461d16e
 **nginx_config** installs **NGINX** and configures it as an HTTPS proxy for Flask app<br />
 
 **vars** folder is for variables, contains vars.yml with **flask_app_location: "/usr/local/opt/flask_app"**<br />
@@ -44,19 +33,9 @@ To test app with POST method type: `curl -k -H "Content-Type: application/json" 
 `-d` option indicates the data to include in the body of the request, **wolf** is emoji, **word** is a key for it, **count** is for how many times emoji should appear<br />
 For GET method with Flask greetings type `curl -k https://name_of_managed_host/`<br />
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fdc7aecfab4cb115310dd725846e1e928461d16e
 To run the playbook type: `ansible-playbook flask_app_real.yml --become --become-user=root --ask-become-pass`<br />
 `--ask-become-pass` option means the password is required<br />
 `--become` tells Ansible to become a different user<br />
 `--become-user=root` tells Ansible that user is root<br />
-<<<<<<< HEAD
-=======
-To run the playbook type: `ansible-playbook flask_app_real.yml --become --become-user=root --ask-become-pass`, `--ask-become-pass` option means the password is required, `--become` tells Ansible to become a different user, `--become-user=root` tells Ansible that user is root<br />
->>>>>>> 537c1d513b5e6f5c67c0a54e2f5b2f4b3d8599ab
-=======
->>>>>>> fdc7aecfab4cb115310dd725846e1e928461d16e
 
 There is a possibility playbook files contain sensitive data like passwords, to provide additional security Ansible can encrypt such files with `ansible-vault encrypt file_name.yml` command, it demands a password, enter it and file_name.yml will no longer contain YAML, instead there are numbers. Next time the playbook runs it will demand a password. The convenient way to run playbooks with encrypted files is to create a password file. Inside **.ansible** folder which should be in a folder where you run a playbook, if not make it, create **vault_pass.txt** file with your password, set permissions to 600 by typing `chmod 600 vault_pass.txt`. When run the playbook use `--vault-password-file .ansible/vault_pass.txt` option. I encrypted **vars/vars.yml** file, but didn't add it for the reason of showing the file contents. To run the playbook with an encrypted file type `ansible-playbook flask_app_real.yml --become --become-user=user --ask-become-pass --vault-password-file .ansible/vault_pass.txt`<br />
