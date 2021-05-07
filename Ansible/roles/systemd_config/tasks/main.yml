@@ -35,13 +35,13 @@
 - name: Edit service file
   lineinfile:
     dest: /etc/systemd/system/flask_app_service.service
-    line: 'WorkingDirectory=/home/wl/flask_app/flask_dir_test'
+    line: 'WorkingDirectory=/usr/local/opt/flask_app/flask_dir'
     state: present
 
 - name: Edit service file
   lineinfile:
     dest: /etc/systemd/system/flask_app_service.service
-    line: 'ExecStart=/home/wl/flask_app/flask_dir_test/flask_app_src.py'
+    line: 'ExecStart=/usr/local/opt/flask_app/flask_dir/flask_app_src.py'
     state: present
 
 - name: Edit service file
@@ -70,7 +70,3 @@
 
 - name: Enable service
   shell: systemctl enable flask_app_service.service
-
-
-
-  
