@@ -1,0 +1,31 @@
+pipeline {
+agent any
+
+triggers {
+pollSCM('* * * * *')
+}
+
+stages {
+stage('Get Python Hello from GitHub, dockerize it, push to Docker Hub and run locally') {
+            steps { 
+                git 'https://github.com/Therou/python_hello.git'
+                
+                sh "docker build -t python-hello ."
+                
+                sh "docker tag python-hello dockerjenkinsg/python-hello:1"
+                
+                sh "docker login --username dockerjenkinsg --password Registry_for_Jenkins"
+                
+                sh "docker push dockerjenkinsg/python-hello:1"
+                
+                sh "docker rmi python-hello dockerjenkinsg/python-hello:1"
+                
+                sh "docker pull dockerjenkinsg/python-hello:1"
+                
+                sh "docker run -d -p 2000:2000 dockerjenkinsg/python-hello:1"
+}
+
+}
+
+}
+

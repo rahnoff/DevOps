@@ -1,0 +1,45 @@
+pipeline {
+agent any
+
+triggers {
+pollSCM('* * * * *')
+}
+
+stages {
+        stage('Get Java Hello from GitHub, compile and package') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Therou/java_hello.git'
+
+                // Run Maven on a Unix agent.
+                sh "./mvnw compile"
+                
+                sh "./mvnw package"
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+            
+        stage('Dockerize Java Hello, push it to Docker Hub and run locally') {
+            steps {
+                //sh "docker build -t dockerjenkinsg/java-hello ."
+                
+                sh "docker build -t java-hello ."
+                
+                sh "docker tag java-hello dockerjenkinsg/java-hello:1"
+                
+                sh "docker login --username dockerjenkinsg --password Registry_for_Jenkins"
+                
+                sh "docker push dockerjenkinsg/java-hello:1"
+                
+                sh "docker rmi java-hello dockerjenkinsg/java-hello:1"
+                
+                sh "docker pull dockerjenkinsg/java-hello:1"
+                
+                sh "docker run -d -p 49001:8080 dockerjenkinsg/java-hello:1"
+            }
+        }
+}
+
+}
