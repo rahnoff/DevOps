@@ -13,7 +13,6 @@ To use playbook make ssh pair of keys by typing `ssh-keygen` at Ansible host, th
 **HTTPS** requires certificates, self-signed certificates in this case, to generate a key and a cert install OpenSSL by typing `sudo apt install openssl`, then type `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout name_of_current_dir/nginx-selfsigned.key -out name_of_current_dir/nginx-selfsigned.crt`, answers to questions may be arbitrary, for **common name** answer localhost. File with .crt extension has root as user and group owner, change ownership to local non-root user by `sudo chown user_name nginx-selfsigned.crt`, `sudo chown :group_name_of_user_name nginx-selfsigned.crt` and `chmod g+r nginx-selfsigned.crt`, `chmod o+r nginx-selfsigned.crt`, then move them to ansible folder from which ansible playbook runs<br />
 
 **flaskpy** role is all about installing required python libs for Flask and configuring app on a remote host<br />
->>>>>>> master
 
 **firewall_config** role installs and configures ufw to allow only 22, 8080, 443 ports<br />
 
