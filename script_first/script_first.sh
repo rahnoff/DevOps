@@ -1,10 +1,8 @@
 #!/bin/bash
-
-# netstat shows tcp and udp connections
 E_NOARGS=75
 if [ -z "$1" ]
 then
-	echo "Usage: `basename $0` firefox or `basename $0` 5000"  #Process ID or name isn't specified, pls enter like firefox or 6457
+	echo "Usage: `basename $0` firefox or `basename $0` 5000"
 	exit $E_NOARGS
 else
 	sudo netstat -tunapl |
